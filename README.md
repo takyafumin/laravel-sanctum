@@ -24,6 +24,28 @@ Laravel Sanctum によるAPI認証
 | Webメールクライアント | http://localhost:8025/ |
 | DBツール              | http://localhost:8080/ |
 
+### エンドポイント
+
+|          機能          |                 URL                  | 認証制限 |
+| ---------------------- | ------------------------------------ | :------: |
+| TOP画面                | http://localhost/                    |   なし   |
+| ログイン画面           | http://localhost/login               |   なし   |
+| ログアウト画面         | http://localhost/logout              |   あり   |
+| ユーザ登録画面         | http://localhost/register            |   なし   |
+| パスワードリセット画面 | http://localhost/password/reset      |   なし   |
+| ホーム画面             | http://localhost/home                |   あり   |
+| ユーザ一覧API          | http://localhost/api/users           |   なし   |
+| ユーザ情報API          | http://localhost/api/me              |   あり   |
+| csrfトークン生成API    | http://localhost/sanctum/csrf-cookie |   あり   |
+
+
+### javascriptでのajax通信例
+
+ブラウザのconsoleから実行可能
+
+```javascript
+var xhr = new XMLHttpRequest(); xhr.open('GET', 'http://localhost/api/me'); xhr.send(); xhr.addEventListener('readystatechange', () => { if(xhr.readyState === 4 && xhr.status === 200) { console.log(JSON.parse(xhr.response)); }});
+```
 
 使い方
 ----------
