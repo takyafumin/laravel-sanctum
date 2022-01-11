@@ -21,8 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/me', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
 
 /**
  * public access api
  */
-Route::get('/api/users', [App\Http\Controllers\API\UserController::class, 'index'])->name('user.index');
+Route::get('/api/users', [App\Http\Controllers\API\UserController::class, 'index'])->name('api.user.index');

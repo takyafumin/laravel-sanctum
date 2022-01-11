@@ -1,6 +1,7 @@
 Laravel Sanctum によるAPI認証
 ====================
 
+Formログインした情報をsanctumを利用してAPIでも参照できるか
 
 
 構成
@@ -26,17 +27,18 @@ Laravel Sanctum によるAPI認証
 
 ### エンドポイント
 
-|          機能          |                 URL                  | 認証制限 |
-| ---------------------- | ------------------------------------ | :------: |
-| TOP画面                | http://localhost/                    |   なし   |
-| ログイン画面           | http://localhost/login               |   なし   |
-| ログアウト画面         | http://localhost/logout              |   あり   |
-| ユーザ登録画面         | http://localhost/register            |   なし   |
-| パスワードリセット画面 | http://localhost/password/reset      |   なし   |
-| ホーム画面             | http://localhost/home                |   あり   |
-| ユーザ一覧API          | http://localhost/api/users           |   なし   |
-| ユーザ情報API          | http://localhost/api/me              |   あり   |
-| csrfトークン生成API    | http://localhost/sanctum/csrf-cookie |   あり   |
+|          機能          |                 URL                  | 認証制限 |                  備考                  |
+| ---------------------- | ------------------------------------ | :------: | -------------------------------------- |
+| TOP画面                | http://localhost/                    |   なし   |                                        |
+| ログイン画面           | http://localhost/login               |   なし   |                                        |
+| ログアウト画面         | http://localhost/logout              |   あり   |                                        |
+| ユーザ登録画面         | http://localhost/register            |   なし   |                                        |
+| パスワードリセット画面 | http://localhost/password/reset      |   なし   |                                        |
+| ホーム画面             | http://localhost/home                |   あり   |                                        |
+| 検証用画面             | http://localhost/me                  |   なし   | 取得ボタンにてログイン情報を取得できる |
+| ユーザ一覧API          | http://localhost/api/users           |   なし   |                                        |
+| ユーザ情報API          | http://localhost/api/me              |   あり   |                                        |
+| csrfトークン生成API    | http://localhost/sanctum/csrf-cookie |   あり   |                                        |
 
 
 ### javascriptでのajax通信例
