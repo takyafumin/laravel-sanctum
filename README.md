@@ -41,11 +41,27 @@ cp backend/.env.example backend/.env
 docker-compose up -d
 
 # composer install
-docker-compose exec laravel composer install
+# npm install
+docker-compose exec -u sail laravel composer install
+docker-compose exec -u sail laravel npm ci
 
 # アプリケーションキー生成
 # DBマイグレーション
-docker-compose exec laravel php artisan key:generate
-docker-compose exec laravel php artisan migrate
-docker-compose exec laravel php artisan db:seed
+docker-compose exec -u sail laravel php artisan key:generate
+docker-compose exec -u sail laravel php artisan migrate
+docker-compose exec -u sail laravel php artisan db:seed
+
+# 権限付与
+docker-compose exec laravel chmod -R 770 storage bootstrap/cache
+```
+
+アセットコンパイル
+
+```bash
+# 開発用
+docker-compose exec -u sail laravel npm run dev
+docker-compose exec -u sail laravel npm run watch
+
+# 本番用
+docker-compose exec -u sail laravel npm run prod
 ```
